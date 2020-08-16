@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-
-
+namespace OpenCATe{
 class MainClass {
   public static void Main (string[] args) {
     Console.WriteLine ("Open CAT beta");
@@ -23,4 +22,5 @@ class MainClass {
     }
     
   }
+}
 }
