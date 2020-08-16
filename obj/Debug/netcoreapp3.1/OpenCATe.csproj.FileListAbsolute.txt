@@ -1,0 +1,13 @@
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe.deps.json
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe.runtimeconfig.json
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe.runtimeconfig.dev.json
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe.dll
+/home/emiliano/Documentos/Csharp/OpenCATe/bin/Debug/netcoreapp3.1/OpenCATe.pdb
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.csprojAssemblyReference.cache
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.AssemblyInfoInputs.cache
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.AssemblyInfo.cs
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.csproj.CoreCompileInputs.cache
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.dll
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.pdb
+/home/emiliano/Documentos/Csharp/OpenCATe/obj/Debug/netcoreapp3.1/OpenCATe.genruntimeconfig.cache
