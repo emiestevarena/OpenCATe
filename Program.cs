@@ -20,7 +20,7 @@ namespace OpenCATe
                 Console.WriteLine("Insert source text");
                 sText.textIn.Add(Console.ReadLine());
                 Console.WriteLine("Insert target text");
-                sText.textIn.Add(Console.ReadLine());
+                tText.textIn.Add(Console.ReadLine());
     }
         }
     }
