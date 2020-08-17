@@ -10,15 +10,10 @@ public class Main {
         System.out.println("OpenCATe Beta");
         TranslationMemory Tmem1 = new TranslationMemory();
         System.out.println("Introduce number of paragraphs");
-        Tmem1.paragraphs=leer.nextInt();
-        Tmem1.fullMem = new String[Tmem1.paragraphs][Tmem1.paragraphs];
-        int i;
-        for (i=0;i<Tmem1.paragraphs;i++){
-            System.out.println("introduce source paragraph "+(i+1));
-            Tmem1.fullMem[i][0]=leer.next();
-            System.out.println("introduce target paragraph "+(i+1));
-            Tmem1.fullMem[i][1]=leer.next();
-        }
+        int a=leer.nextInt();
+        Tmem1.createMemory(a);
+        Tmem1.setParagraphs(a);
+        Tmem1.setMemory();
         leer.close();
     }
     
