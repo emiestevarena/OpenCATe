@@ -1,6 +1,7 @@
 package classes;
 import java.util.Scanner;
 
+
 public class TranslationMemory {
     private String[] Languages;
     private String[][] fullMem; //index 0 = source; index 1= target
@@ -26,8 +27,9 @@ public class TranslationMemory {
     }
 
     public void setMemory(Glossary a){
-        int i;
+        int i,j,k;
         String b;
+        j=2147483000;
         for (i=0;i<this.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+this.getSourceLanguage());
             b=leer.next();
@@ -35,7 +37,20 @@ public class TranslationMemory {
             a.searchEntry(b);
             System.out.println("introduce target paragraph "+(i+1)+" in language: "+this.getTargetLanguage());
             b=leer.next();
-            this.setTarget(i,b);
+            k=b.length();
+            j-=k-1;
+            if(j<=0){
+                System.out.println("Max length reached");
+                while(i<this.paragraphs){
+                    this.setTarget(i,"");
+                    i++;
+                }
+                break;
+            }else{
+                this.setTarget(i,b);
+                System.out.println("Characters left: "+j);
+            }
+            
         }
         
     }
