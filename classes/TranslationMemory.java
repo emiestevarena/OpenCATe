@@ -29,7 +29,7 @@ public class TranslationMemory {
     public void setMemory(Glossary a){
         int i,j,k;
         String b;
-        j=2147483000;
+        j=1073741000;
         for (i=0;i<this.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+this.getSourceLanguage());
             b=leer.next();
