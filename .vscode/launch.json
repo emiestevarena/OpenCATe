@@ -5,21 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
-            "type": "coreclr",
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/<insert-target-framework-here>/<insert-project-name-here>.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopAtEntry": false
+            "mainClass": "${file}"
         },
         {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
+            "type": "java",
+            "name": "Debug (Launch)-Main<OpenCATe_ba45cfed>",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "OpenCATe_ba45cfed"
         }
     ]
 }
