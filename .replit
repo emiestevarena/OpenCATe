@@ -1,2 +1,2 @@
-language = "csharp"
-run = "csharp Program.cs"
+language = "java"
+run = "java Main.java"
