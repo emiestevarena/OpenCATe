@@ -19,6 +19,7 @@ public class Main {
         Tmem1.createMemory(a);
         Tmem1.setParagraphs(a);
         Tmem1.setMemory(dic);
+        files.writeTarget(Tmem1);
         leer.close();
     }
     

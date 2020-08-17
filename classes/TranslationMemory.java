@@ -72,6 +72,8 @@ public class TranslationMemory {
         return fullMem[i][0];
     }
     
-       
+    public String getTargetMem(int i){
+        return fullMem[i][1];
+    }   
 
 }
