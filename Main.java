@@ -1,5 +1,6 @@
-import classes.Source;
-import classes.Target;
+import classes.TranslationMemory;
+import classes.Dictionary;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,19 +8,16 @@ public class Main {
     public static void main(String []args) {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("OpenCATe Beta");
-        Source sText = new Source();
+        TranslationMemory Tmem1 = new TranslationMemory();
         System.out.println("Introduce number of paragraphs");
-        sText.paragraphs=leer.nextInt();
-        sText.TMem = new String[sText.paragraphs];
-        Target tText = new Target();
-        tText.paragraphs=sText.paragraphs;
-        tText.TMem = new String[tText.paragraphs];
+        Tmem1.paragraphs=leer.nextInt();
+        Tmem1.fullMem = new String[Tmem1.paragraphs][Tmem1.paragraphs];
         int i;
-        for (i=0;i<sText.paragraphs;i++){
+        for (i=0;i<Tmem1.paragraphs;i++){
             System.out.println("introduce source paragraph "+(i+1));
-            sText.TMem[i]=leer.next();
+            Tmem1.fullMem[i][0]=leer.next();
             System.out.println("introduce target paragraph "+(i+1));
-            tText.TMem[i]=leer.next();
+            Tmem1.fullMem[i][1]=leer.next();
         }
         leer.close();
     }
