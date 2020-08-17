@@ -25,13 +25,14 @@ public class TranslationMemory {
         
     }
 
-    public void setMemory(){
+    public void setMemory(Glossary a){
         int i;
         String b;
         for (i=0;i<this.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+this.getSourceLanguage());
             b=leer.next();
             this.setSource(i,b);
+            a.searchEntry(b);
             System.out.println("introduce target paragraph "+(i+1)+" in language: "+this.getTargetLanguage());
             b=leer.next();
             this.setTarget(i,b);
@@ -65,6 +66,10 @@ public class TranslationMemory {
 
     public String[][] getfullMem(){
         return fullMem;
+    }
+
+    public String getSourceMem(int i){
+        return fullMem[i][0];
     }
     
        
