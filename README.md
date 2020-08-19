@@ -1,6 +1,6 @@
 # OpenCATe
 Will try to develop an online CAT tool
-Version 1.1 - 19/08/2020
+Version 1.0-build_2 - 19/08/2020
 # Functionalities:
 1. Two language glossary: max length 100 entries.
 2. Glossary prints if word matches with input string in source language.
@@ -21,4 +21,7 @@ Max text length set to 800 below (2^31-1)/2. If you operate with or below 32-bit
 6. Write target paragraph. Input is stored and written into file after translating.
 7. Read the .txt with the target text.
 
+# How to run
+1. Via Repl.it, click on the icon below and test online.
+2. Via releases. Install OpenJDK14 and download binaries tagged as prerelease. Extract and run via java -jar "filename".
 [![Run on Repl.it](https://repl.it/badge/github/emiestevarena/OpenCATe)](https://repl.it/github/emiestevarena/OpenCATe)
