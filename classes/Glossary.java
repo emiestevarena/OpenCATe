@@ -4,12 +4,13 @@ import java.util.Scanner;
 public class Glossary {
     private String[][] entry;
     private int entries;
-    Scanner leer = new Scanner(System.in);
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
     
     public Glossary createDictionary(){
         Glossary dic=new Glossary();
         this.entry = new String[100][2];
         int i;
+        this.entries=0;
         for(i=0;i<100;i++){
             this.entry[i][0]="";
             this.entry[i][1]="";
@@ -18,17 +19,17 @@ public class Glossary {
     }
 
     public void setEntry(){
-        int a=0;
-        int b=0;
-        while(a==0){
-            System.out.println("Enter source and target glossary term "+(b+1));
-            this.entry[b][0]=leer.next();
-            this.entry[b][1]=leer.next();
-            System.out.println("Enter 0 to continue, or any other number to exit");
-            a=leer.nextInt();
-            b++;
+        int a=this.entries;
+        System.out.println("Enter number of entries to the glossary:");
+        int b=leer.nextInt();
+        int c=b+a;
+        while(a<c){
+            System.out.println("Enter source and target glossary term "+(a+1));
+            this.entry[a][0]=leer.next();
+            this.entry[a][1]=leer.next();
+            a++;
         }
-        this.entries=b;
+        this.entries=c;
     }
 
     public void searchEntry(String a){
