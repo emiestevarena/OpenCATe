@@ -1,4 +1,5 @@
 import classes.TranslationMemory;
+import classes.TranslationServices;
 import classes.Glossary;
 import classes.Output;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class Main {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("OpenCATe Beta");
         Output files = new Output();
+        TranslationServices serv = new TranslationServices();
         files.createTarget();
         TranslationMemory Tmem1 = new TranslationMemory();
         Glossary dic= new Glossary();
@@ -18,8 +20,7 @@ public class Main {
         int a=leer.nextInt();
         Tmem1.createMemory(a);
         Tmem1.setParagraphs(a);
-        Tmem1.setMemory(dic);
-        files.writeTarget(Tmem1);
+        serv.inputMemory(Tmem1, dic, files);
         leer.close();
     }
     

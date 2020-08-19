@@ -1,11 +1,12 @@
 # OpenCATe
 Will try to develop an online CAT tool
-Version 1.0 - 17/08/2020
+Version 1.1 - 19/08/2020
 # Functionalities:
 1. Two language glossary: max length 100 entries.
 2. Glossary prints if word matches with input string in source language.
 3. Creates and writes .txt files.
 4. For now, glossary and source text input must be manually introduced.
+5. Auto save enabled. For each segment inputted, the target file is saved with target text.
 
 # Warning!
 No error handling is in effect. If you input String where numbers are required, the program will crash.

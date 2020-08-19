@@ -6,6 +6,7 @@ public class TranslationMemory {
     private String[] Languages;
     private String[][] fullMem; //index 0 = source; index 1= target
     private int paragraphs;
+    private int max_length;
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
@@ -15,6 +16,7 @@ public class TranslationMemory {
         this.Languages= new String[2];
         this.paragraphs=a;
         this.setLanguages();
+        this.max_length=1073741000;
         return mem;
     }
 
@@ -26,33 +28,12 @@ public class TranslationMemory {
         
     }
 
-    public void setMemory(Glossary a){
-        int i,j,k;
-        String b;
-        j=1073741000;
-        for (i=0;i<this.getParagraphs();i++){
-            System.out.println("introduce source paragraph "+(i+1)+" in language: "+this.getSourceLanguage());
-            b=leer.next();
-            this.setSource(i,b);
-            a.searchEntry(b);
-            System.out.println("introduce target paragraph "+(i+1)+" in language: "+this.getTargetLanguage());
-            b=leer.next();
-            k=b.length();
-            j-=k-1;
-            if(j<=0){
-                System.out.println("Max length reached");
-                while(i<this.paragraphs){
-                    this.setTarget(i,"");
-                    i++;
-                }
-                break;
-            }else{
-                this.setTarget(i,b);
-                System.out.println("Characters left: "+j);
-            }
-            
-        }
-        
+    public void setMaxLength(int a) {
+        this.max_length=a;
+    }
+
+    public int getMaxLength(){
+        return max_length;
     }
 
     public void setSource(int a, String b){
