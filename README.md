@@ -24,4 +24,4 @@ Max text length set to 800 below (2^31-1)/2. If you operate with or below 32-bit
 # How to run
 1. Via Repl.it, click on the icon and test online.
 [![Run on Repl.it](https://repl.it/badge/github/emiestevarena/OpenCATe)](https://repl.it/github/emiestevarena/OpenCATe)
-2. Via releases. Install OpenJDK14 and download binaries tagged as prerelease. Extract and run via java -jar "filename".
+2. Via releases. Install OpenJDK14 and download binaries tagged as prerelease. Extract and run via "java -jar filename.jar" on terminal.
