@@ -18,7 +18,7 @@ Max text length set to 800 below (2^31-1)/2. If you operate with or below 32-bit
 2. Introduce glossary entries
 3. Set up text length in paragraphs. TMs are multidimensional arrays with n paragraphs and rows and two columns (target and source).
 4. Introduce source and target languages (one target max).
-5. Introduce first source text paragraph. Program will search for glossary entries you've set up.
+5. Introduce first source text paragraph. Program will search for glossary entries you've set up and previous translations you've made of similar paragraphs.
 6. Write target paragraph. Input is stored and written into file after translating.
 7. Read the .txt with the target text.
 
