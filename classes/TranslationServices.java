@@ -12,6 +12,14 @@ public class TranslationServices {
             d=leer.next();
             a.setSource(i,d);
             b.searchEntry(d);
+            MemoryServices ms = new MemoryServices();
+            if(i>0){
+                MemoryCheck mc= new MemoryCheck();
+                ms.setWords(a, i, mc);
+                ms.setStrings(a, i, mc);
+                ms.compareStrings(a, mc);
+                ms.delete(mc);
+            }
             System.out.println("introduce target paragraph "+(i+1)+" in language: "+a.getTargetLanguage());
             d=leer.next();
             k=d.length();
