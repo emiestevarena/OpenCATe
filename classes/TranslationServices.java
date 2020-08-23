@@ -7,12 +7,12 @@ public class TranslationServices {
         int i,j,k;
         String d;
         j=a.getMaxLength();
+        MemoryServices ms = new MemoryServices();
         for (i=0;i<a.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+a.getSourceLanguage());
             d=leer.next();
             a.setSource(i,d);
             b.searchEntry(d);
-            MemoryServices ms = new MemoryServices();
             if(i>0){
                 MemoryCheck mc= new MemoryCheck();
                 ms.setWords(a, i, mc);

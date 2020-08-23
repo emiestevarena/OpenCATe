@@ -42,7 +42,7 @@ public class MemoryServices {
                     b.setPercentage(c*100/b.getWordCount());
                 }
             }
-            if(b.getPercentage()>70){
+            if(b.getPercentage()>=70){
                 System.out.println("Similar segment, "+b.getPercentage()+"% match:");
                 System.out.print(a.getTargetMem(i));
                 System.out.println("");
