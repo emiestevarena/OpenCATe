@@ -3,6 +3,15 @@ import java.util.Scanner;
 
 public class TranslationServices {
     Scanner leer= new Scanner(System.in).useDelimiter("\n");
+
+    public void SourceToMemory(TranslationMemory a, Source b){
+        int i;
+        for(i=0;i<b.getLength();i++){
+            a.setSource(i, b.getSText(i));
+        } 
+        b.deleteSText();    
+    }
+
     public void inputMemory(TranslationMemory a, Glossary b, Output c){
         int i,j,k;
         String d;
@@ -10,9 +19,8 @@ public class TranslationServices {
         MemoryServices ms = new MemoryServices();
         for (i=0;i<a.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+a.getSourceLanguage());
-            d=leer.next();
-            a.setSource(i,d);
-            b.searchEntry(d);
+            System.out.println(a.getSourceMem(i));
+            b.searchEntry(a.getSourceMem(i));
             if(i>0){
                 MemoryCheck mc= new MemoryCheck();
                 ms.setWords(a, i, mc);

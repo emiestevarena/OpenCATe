@@ -2,6 +2,8 @@ import classes.TranslationMemory;
 import classes.TranslationServices;
 import classes.Glossary;
 import classes.Output;
+import classes.Source;
+
 import java.util.Scanner;
 
 public class Main {
@@ -16,10 +18,10 @@ public class Main {
         Glossary dic= new Glossary();
         dic.createDictionary();
         dic.setEntry();
-        System.out.println("Introduce number of paragraphs");
-        int a=leer.nextInt();
-        Tmem1.createMemory(a);
-        Tmem1.setParagraphs(a);
+        Source s = new Source();
+        s.ReadFile();
+        Tmem1.createMemory(s);
+        serv.SourceToMemory(Tmem1, s);
         serv.inputMemory(Tmem1, dic, files);
         leer.close();
     }

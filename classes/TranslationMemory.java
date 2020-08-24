@@ -10,11 +10,11 @@ public class TranslationMemory {
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    public TranslationMemory createMemory(int a){
+    public TranslationMemory createMemory(Source a){
         TranslationMemory mem = new TranslationMemory();
-        this.fullMem= new String[a][2];
+        this.fullMem= new String[a.getLength()][2];
         this.Languages= new String[2];
-        this.paragraphs=a;
+        this.paragraphs=a.getLength();
         this.setLanguages();
         this.max_length=1073741000;
         return mem;
