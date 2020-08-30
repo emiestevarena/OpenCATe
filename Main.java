@@ -3,6 +3,7 @@ import classes.TranslationServices;
 import classes.Glossary;
 import classes.Output;
 import classes.Source;
+import classes.GlossaryServices;
 
 import java.util.Scanner;
 
@@ -16,13 +17,14 @@ public class Main {
         files.createTarget();
         TranslationMemory Tmem1 = new TranslationMemory();
         Glossary dic= new Glossary();
+        GlossaryServices gs = new GlossaryServices();
         dic.createDictionary();
-        dic.setEntry();
+        gs.setEntry(dic);
         Source s = new Source();
         s.ReadFile();
         Tmem1.createMemory(s);
         serv.SourceToMemory(Tmem1, s);
-        serv.inputMemory(Tmem1, dic, files);
+        serv.inputMemory(Tmem1, dic, files, gs);
         leer.close();
     }
     

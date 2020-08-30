@@ -1,43 +1,49 @@
 package classes;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Glossary {
-    private String[][] entry;
+    private ArrayList<ArrayList<String>> glossary = new ArrayList<>();
+    private ArrayList<String> sourceEntry = new ArrayList<>();
+    private ArrayList<String> targetEntry = new ArrayList<>();
     private int entries;
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+  
     
     public Glossary createDictionary(){
         Glossary dic=new Glossary();
-        this.entry = new String[100][2];
-        int i;
         this.entries=0;
-        for(i=0;i<100;i++){
-            this.entry[i][0]="";
-            this.entry[i][1]="";
-        }
         return dic;
     }
 
-    public void setEntry(){
-        int a=this.entries;
-        System.out.println("Enter number of entries to the glossary:");
-        int b=leer.nextInt();
-        int c=b+a;
-        while(a<c){
-            System.out.println("Enter source and target glossary term "+(a+1));
-            this.entry[a][0]=leer.next();
-            this.entry[a][1]=leer.next();
-            a++;
-        }
-        this.entries=c;
+    public void setSourceEntry(String a){
+        this.sourceEntry.add(a);
     }
 
-    public void searchEntry(String a){
-        int i;
-        for(i=0;i<this.entries;i++){
-        if(a.contains(this.entry[i][0])){
-            System.out.println("Entry found. Source: "+this.entry[i][0]+", Target: "+this.entry[i][1]);
-        }
-        }
+    public void setTargetEntry(String a){
+        this.targetEntry.add(a);
     }
+
+    public void setGlossary(ArrayList<String> a){
+        this.glossary.add(a);
+    }
+
+    public void setEntries(int a){
+        this.entries =a;
+    }
+
+    public String getSourceEntry(int a){
+        return sourceEntry.get(a);
+    }
+
+    public String getTargetEntry(int a){
+        return targetEntry.get(a);
+    }
+    
+    public ArrayList<String> getGlossary(int a){
+        return glossary.get(a);
+    }
+
+    public int getEntries(){
+        return entries;
+    }
+    
 }
