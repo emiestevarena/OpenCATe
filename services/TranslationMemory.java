@@ -1,4 +1,5 @@
-package classes;
+package services;
+import classes.*;
 import java.util.Scanner;
 
 

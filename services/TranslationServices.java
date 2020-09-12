@@ -1,4 +1,5 @@
-package classes;
+package services;
+import classes.*;
 import java.util.Scanner;
 
 public class TranslationServices {
@@ -12,7 +13,7 @@ public class TranslationServices {
         b.deleteSource();    
     }
 
-    public void inputMemory(TranslationMemory a, Glossary b, Output c, GlossaryServices e){
+    public void inputMemory(TranslationMemory a, Glossary b, Output c, GlossaryServices e,Expressions f){
         int i,j,k;
         String d;
         j=a.getMaxLength();
@@ -20,7 +21,7 @@ public class TranslationServices {
         for (i=0;i<a.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+a.getSourceLanguage());
             System.out.println(a.getSourceMem(i));
-            e.searchEntry(a.getSourceMem(i),b);
+            e.searchEntry(a.getSourceMem(i),b,f);
             if(i>0){
                 MemoryCheck mc= new MemoryCheck();
                 ms.setWords(a, i, mc);
@@ -45,6 +46,7 @@ public class TranslationServices {
                 a.setMaxLength(j);
                 c.writeTarget(a);
                 e.setEntry(b);
+                e.setExpression(f);
             }
             
         }

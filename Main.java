@@ -1,9 +1,5 @@
-import classes.TranslationMemory;
-import classes.TranslationServices;
-import classes.Glossary;
-import classes.Output;
-import classes.Source;
-import classes.GlossaryServices;
+import classes.*;
+import services.*;
 
 import java.util.Scanner;
 
@@ -17,14 +13,15 @@ public class Main {
         files.createTarget();
         TranslationMemory Tmem1 = new TranslationMemory();
         Glossary dic= new Glossary();
+        Expressions ex = new Expressions();
         GlossaryServices gs = new GlossaryServices();
-        dic.createDictionary();
         gs.setEntry(dic);
+        gs.setExpression(ex);
         Source s = new Source();
         s.ReadFile();
         Tmem1.createMemory(s);
         serv.SourceToMemory(Tmem1, s);
-        serv.inputMemory(Tmem1, dic, files, gs);
+        serv.inputMemory(Tmem1, dic, files, gs, ex);
         leer.close();
     }
     

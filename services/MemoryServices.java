@@ -1,4 +1,5 @@
-package classes;
+package services;
+import classes.*;
 
 public class MemoryServices {
     public void setWords(TranslationMemory a,int b, MemoryCheck c){
