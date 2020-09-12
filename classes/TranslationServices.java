@@ -44,6 +44,7 @@ public class TranslationServices {
                 System.out.println("Characters left: "+j);
                 a.setMaxLength(j);
                 c.writeTarget(a);
+                e.setEntry(b);
             }
             
         }

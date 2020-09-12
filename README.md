@@ -1,6 +1,6 @@
 # OpenCATe
 Will try to develop an online CAT tool
-Version 1.0-build_5 - 30/08/2020
+Version 1.0-build_5 - 12/09/2020
 
 # Functionalities:
 1. Two language glossary.
@@ -12,7 +12,6 @@ Version 1.0-build_5 - 30/08/2020
 7. Translation memory now prints previously translated segments if there is >70% match in source segments.
 
 # Warning!
-No error handling is in effect. If you input String where numbers are required, the program will crash.
 Max text length set to 800 below (2^31-1)/2 characters, including new lines. This limit is preset for your Translation Memory, but not for your source text reading and the glossary setup, which may hinder target text writing. 
 Source file must be created before starting the program to avoid crashes.
 Hot keys like "Ctrl+Z" and arrow keys are not enabled. 
