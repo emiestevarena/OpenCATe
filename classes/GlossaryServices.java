@@ -11,7 +11,6 @@ public class GlossaryServices {
         try{
             b=(int) (check(leer.nextInt()));
         }catch(MyException me){
-            leer.next();
             b=0;
             System.out.println("Number below 0. Exitting glossary.");
         }catch(Exception e){
