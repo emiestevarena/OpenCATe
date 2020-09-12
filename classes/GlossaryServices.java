@@ -40,7 +40,7 @@ public class GlossaryServices {
     }
 
     public static int check(int a) throws MyException{
-        if(a<0)return a;
+        if(a>=0)return a;
         else throw new MyException("Number out of range");
     }
 }
