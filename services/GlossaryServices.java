@@ -7,7 +7,7 @@ public class GlossaryServices {
     
     public void setEntry(Glossary g){
         int b=0;
-        System.out.println("Enter number of entries to the glossary:");
+        System.out.println("Enter number of glossary entries:");
         try{
             b=(int) (check(leer.nextInt()));
         }catch(MyException me){
@@ -29,7 +29,7 @@ public class GlossaryServices {
 
     public void setExpression(Expressions ex){
         int b=0;
-        System.out.println("Enter number of entries to the glossary:");
+        System.out.println("Enter number of expression entries:");
         try{
             b=(int) (check(leer.nextInt()));
         }catch(MyException me){
