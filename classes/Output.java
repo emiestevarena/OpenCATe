@@ -7,7 +7,7 @@ import services.*;
 
 public class Output {
     private String tFile;
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    Scanner leer = new Scanner(System.in, "UTF-8").useDelimiter("\n");
     
     public void createTarget(){
         System.out.println("introduce file name (no extension)");

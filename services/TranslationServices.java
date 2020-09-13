@@ -3,7 +3,7 @@ import classes.*;
 import java.util.Scanner;
 
 public class TranslationServices {
-    Scanner leer= new Scanner(System.in).useDelimiter("\n");
+    Scanner leer= new Scanner(System.in, "UTF-8").useDelimiter("\n");
 
     public void SourceToMemory(TranslationMemory a, Source b){
         int i;
