@@ -11,8 +11,8 @@ Version 1.0-build_5 - 12/09/2020
 6. Auto save enabled. For each segment inputted, the target file is saved with target text.
 7. Translation memory now prints previously translated segments if there is >70% match in source segments.
 
-# Expressions vs. Glossaries
-1. Glossaries are your regular two-way entry dictionary, which should be destined for storing 
+# Expression vs. Entry Glossaries
+1. Entry glossaries are your regular two-way entry dictionary, which should be destined for storing technical terms. 
 2. Expressions are a subtype of glossary, consisting of three elements: the source entry, the target entry and the source keyword. These are returned only if the source keyword is found on the source text. The idea is to store in here all phrases or word patterns you would not normally store in a glossary as it would not pop up in searches.
 
 # Warning!

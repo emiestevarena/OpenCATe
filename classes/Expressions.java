@@ -1,17 +1,18 @@
 package classes;
-import java.util.*;
-public class Expressions extends Glossary {
-    private ArrayList<String> sourceKey= new ArrayList<>();
+
+public class Expressions extends Entry {
+    private String sourceKey;
     
     public Expressions(){
-        super();        
+        super();
+        sourceKey=null;        
     }
 
     public void setSourceKey(String a){
-        this.sourceKey.add(a);
+        this.sourceKey=a;
     }
 
-    public ArrayList<String> getSourceKey(){
+    public String getSourceKey(){
         return sourceKey;
     }
 

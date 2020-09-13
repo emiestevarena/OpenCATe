@@ -2,27 +2,27 @@ package classes;
 import java.util.ArrayList;
 
 public class Glossary {
-    private ArrayList<String> sourceEntry = new ArrayList<>();
-    private ArrayList<String> targetEntry = new ArrayList<>();
+    private ArrayList<Entry> entryGlossary = new ArrayList<>();
+    private ArrayList<Expressions> expressionGlossary = new ArrayList<>();
     
     public Glossary(){
 
     }
 
-    public void setSourceEntry(String a){
-        this.sourceEntry.add(a);
+    public void setEntryGlossary(Entry en){
+        this.entryGlossary.add(en);
     }
 
-    public void setTargetEntry(String a){
-        this.targetEntry.add(a);
+    public void setExpressionGlossary(Expressions ex){
+        this.expressionGlossary.add(ex);
     }
 
-    public ArrayList<String> getSourceEntry(){
-        return sourceEntry;
+    public ArrayList<Entry> getEntryGlossary(){
+        return entryGlossary;
     }
 
-    public ArrayList<String> getTargetEntry(){
-        return targetEntry;
+    public ArrayList<Expressions> getExpressionsGlossary(){
+        return expressionGlossary;
     }
     
 }

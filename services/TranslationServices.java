@@ -13,7 +13,7 @@ public class TranslationServices {
         b.deleteSource();    
     }
 
-    public void inputMemory(TranslationMemory a, Glossary b, Output c, GlossaryServices e,Expressions f){
+    public void inputMemory(TranslationMemory a, Glossary b, Output c, GlossaryServices e){
         int i,j,k;
         String d;
         j=a.getMaxLength();
@@ -21,7 +21,7 @@ public class TranslationServices {
         for (i=0;i<a.getParagraphs();i++){
             System.out.println("introduce source paragraph "+(i+1)+" in language: "+a.getSourceLanguage());
             System.out.println(a.getSourceMem(i));
-            e.searchEntry(a.getSourceMem(i),b,f);
+            e.searchEntry(a.getSourceMem(i),b);
             if(i>0){
                 MemoryCheck mc= new MemoryCheck();
                 ms.setWords(a, i, mc);
@@ -46,7 +46,7 @@ public class TranslationServices {
                 a.setMaxLength(j);
                 c.writeTarget(a);
                 e.setEntry(b);
-                e.setExpression(f);
+                e.setExpression(b);
             }
             
         }

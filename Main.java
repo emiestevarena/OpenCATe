@@ -13,15 +13,14 @@ public class Main {
         files.createTarget();
         TranslationMemory Tmem1 = new TranslationMemory();
         Glossary dic= new Glossary();
-        Expressions ex = new Expressions();
         GlossaryServices gs = new GlossaryServices();
         gs.setEntry(dic);
-        gs.setExpression(ex);
+        gs.setExpression(dic);
         Source s = new Source();
         s.ReadFile();
         Tmem1.createMemory(s);
         serv.SourceToMemory(Tmem1, s);
-        serv.inputMemory(Tmem1, dic, files, gs, ex);
+        serv.inputMemory(Tmem1, dic, files, gs);
         leer.close();
     }
     
