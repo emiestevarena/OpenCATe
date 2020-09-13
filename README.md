@@ -19,7 +19,7 @@ Version 1.0-build_5 - 12/09/2020
 1. Source file must be created before starting the program to avoid crashes.
 2. Max text length set to 800 below (2^31-1)/2 characters, including new lines. This limit is preset for your Translation Memory, but not for your source text reading and the glossary setup, which may hinder target text writing. 
 3. Hot keys like "Ctrl+Z" and arrow keys are not enabled.
-4. Program works in UTF-8, so some characters may not be read or written. 
+4. Character are not fully enabled, so some of them may not be read or written. 
 
 # Still not in effect!
 I have set an enumeration for setting languages, and the corresponding language class, but I have not enabled them, as I need to get, first, an all-languages list, and second, implement databases to store memory translations and expressions.
