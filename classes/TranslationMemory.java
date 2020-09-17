@@ -1,7 +1,5 @@
-package services;
-import classes.*;
+package classes;
 import java.util.Scanner;
-
 
 public class TranslationMemory {
     private String[] Languages;
