@@ -48,7 +48,7 @@ public class TranslationServices {
                 c.writeTarget(a);
                 e.setEntry(b);
                 e.setExpression(b);
-                
+                this.writeGlossary(b);
             }
 
         }
@@ -57,7 +57,14 @@ public class TranslationServices {
     public void Import(Glossary g){
         GlossaryImport gi = new GlossaryImport();
         gi.ReadGlossary(g);
+        gi=null;
     };
+
+    private void writeGlossary(Glossary g){
+        GlossaryExport ge = new GlossaryExport();
+        ge.writeGlossary(g);
+        ge=null;
+    }
 
 
 }
