@@ -1,4 +1,5 @@
-package classes;
+package inout;
+import classes.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

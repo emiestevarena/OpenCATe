@@ -1,4 +1,4 @@
-package classes;
+package inout;
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -14,20 +14,11 @@ public class Source{
       File myObj = new File("source.txt");
       Scanner myReader = new Scanner(myObj);
       this.length=0;
-      //this.sText = new String[1000];
       while (myReader.hasNextLine()) {
         this.setSource(myReader.nextLine());
         System.out.println(this.getSource(this.length));
-        //this.sText[this.length] = myReader.nextLine();
-        //System.out.println(this.sText[this.length]);
         this.length++;
       } 
-     /* while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
-        System.out.println(data);
-        this.sText+=data;
-        this.length++;
-      } */
       myReader.close();
       System.out.println("segments: "+this.length);
     } catch (FileNotFoundException e) {

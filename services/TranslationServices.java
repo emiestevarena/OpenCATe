@@ -1,5 +1,6 @@
 package services;
 import classes.*;
+import inout.*;
 import java.util.Scanner;
 
 public class TranslationServices {
@@ -47,9 +48,16 @@ public class TranslationServices {
                 c.writeTarget(a);
                 e.setEntry(b);
                 e.setExpression(b);
+                
             }
-            
+
         }
     }
     
+    public void Import(Glossary g){
+        GlossaryImport gi = new GlossaryImport();
+        gi.ReadGlossary(g);
+    };
+
+
 }

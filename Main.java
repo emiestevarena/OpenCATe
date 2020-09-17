@@ -1,5 +1,6 @@
 import classes.*;
 import services.*;
+import inout.*;
 
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Main {
         files.createTarget();
         TranslationMemory Tmem1 = new TranslationMemory();
         Glossary dic= new Glossary();
+        serv.Import(dic);
         GlossaryServices gs = new GlossaryServices();
         gs.setEntry(dic);
         gs.setExpression(dic);

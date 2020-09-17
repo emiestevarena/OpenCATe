@@ -1,4 +1,5 @@
 package classes;
+import inout.*;
 import java.util.Scanner;
 
 public class TranslationMemory {
