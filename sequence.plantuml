@@ -1,0 +1,5 @@
+@startuml OpenCATe
+Segment -> Memory :stored in
+Entry -> Expression :extends
+Expression -> Glossary :stored in
+@enduml
