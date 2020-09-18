@@ -21,9 +21,9 @@ public class GlossaryExport {
     }
 
     public void writeGlossary(Glossary g){
-        String enter=null;
+        String enter="";
         for (int i=0;i<g.getEntryGlossary().size();i++){
-            enter+=g.getEntryGlossary().get(i).getSource()+"\t"+g.getEntryGlossary().get(i).getTarget()+"\n";
+            enter+=g.getEntryGlossary().get(i).getSource()+"\\"+g.getEntryGlossary().get(i).getTarget()+"\n";
         }
         try {
             FileWriter wTarget = new FileWriter("newGlossary.txt");

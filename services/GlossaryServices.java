@@ -19,10 +19,10 @@ public class GlossaryServices {
             System.out.println("Wrong format, entries set to cero. Exitting glossary");
         }finally{
         while(b>0){
-            System.out.println("Enter source and target glossary term "+g.getEntryGlossary().size()+1);
+            System.out.println("Enter source and target glossary term "+g.getEntryGlossary().size());
             Entry en = new Entry();
             en.setSource(leer.next());
-            en.setSource(leer.next());
+            en.setTarget(leer.next());
             g.setEntryGlossary(en);
             en=null;
             b--;
@@ -44,7 +44,7 @@ public class GlossaryServices {
             System.out.println("Wrong format, entries set to cero. Exitting glossary");
         }finally{
         while(b>0){
-            System.out.println("Enter source and target expression"+g.getExpressionsGlossary().size()+1);
+            System.out.println("Enter source and target expression"+g.getExpressionsGlossary().size());
             Expressions ex = new Expressions();
             ex.setSource(leer.next());
             ex.setTarget(leer.next());
