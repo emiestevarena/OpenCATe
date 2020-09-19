@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Source{
-  private String[] sText;
   private ArrayList <String> source = new ArrayList<>();
   private int length;
 
@@ -27,25 +26,12 @@ public class Source{
     }
   }
 
-
-  public String getSText(int a){
-    return sText[a];
-  }
-
   public ArrayList<String> getSource(){
     return source;
   }
 
   public void setSource(String b){
     this.source.add(b);
-  }
-
-  public void deleteSource(){
-    this.source=null;
-  }
-
-  public int getLength(){
-    return length;
   }
 
 }

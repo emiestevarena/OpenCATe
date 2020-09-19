@@ -13,6 +13,7 @@ class Segment{
 
 class TranslationMemory{
     -Segments: ArrayList
+    -MaxLength: int
     +getter()
     +setter()
     +constructor()
@@ -46,14 +47,20 @@ class Glossary{
 class TranslationServices{
     -Source: String
     -Target: String
-    -MaxLength: int
-    +setter()
-    +getter()
+    +setup()
+    -setLanguages()
     +input()
+    -setSource()
+    -searchMatches()
+    -checkLength()
+    -setTarget()
+    -setGlossary()
+    -export()
 }
 
 class Source{
     -Source: ArrayList
+    -Length: int
     +read()
     +getter()
     +setter()
@@ -69,13 +76,11 @@ class GlossaryServices{
     +inputEntry()
     +inputExpression()
     +searchEntry()
-    +searchExpression()
 }
 
 class MemoryCheck{
     -Words: ArrayList
-    -Size: int
-    -Matches: int
+    -Percentage: double
     +getter()
     +setter()
     +constructor()
@@ -83,22 +88,18 @@ class MemoryCheck{
 
 class MemoryServices{
     -Percentage: int
-    +setter()
-    +getter()
     +split()
     +compare()
 }
 
 class GlossaryImport{
     -Line: String
-    -L1: String
-    -L2: String
     -Entries: int
     +read()
 }
 
 class GlossaryExport{
-    -Text: String
+    +create()
     +write()
 }
 
@@ -106,15 +107,17 @@ Segment --> TranslationMemory :stored in
 Expression --> Glossary :stored in
 Entry --> Glossary :stored in
 TranslationServices--> Segment :creates
-TranslationServices<-- Source: source text
-TranslationServices --> Output: target text
+TranslationServices --> Source: reads
+TranslationServices --> Output: writes
 TranslationServices --> GlossaryServices: uses
 GlossaryServices --> Entry : creates
 GlossaryServices --> Expression: creates
 GlossaryServices --> Glossary: consults
-TranslationServices --> MemoryServices: consults
-MemoryServices --> MemoryCheck: creates
-MemoryServices --> TranslationMemory: compares
+TranslationServices --> MemoryServices: uses
+TranslationServices --> MemoryCheck : creates
+MemoryServices --> MemoryCheck: sets and compares
+MemoryServices --> TranslationMemory: gets
 GlossaryImport --> Entry: creates
-GlossaryServices --> GlossaryExport :exports
+TranslationServices --> GlossaryExport :writes
+TranslationServices --> GlossaryImport :reads
 @enduml
