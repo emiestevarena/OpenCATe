@@ -1,6 +1,6 @@
 # OpenCATe
 Will try to develop an online CAT tool
-Version 1.0-build_6 - 17/09/2020
+Version 1.0-build_6 - 19/09/2020
 
 # Functionalities:
 1. Two language glossary.
@@ -16,7 +16,7 @@ Version 1.0-build_6 - 17/09/2020
 2. Try not to leave blank lines, so that the program runs smoother.
 
 # Setting glossary.txt file
-1. "source.txt" is the file expected to import a glossary. Such file must be created in the same directory as the .jar file (or Main.java if executting from .replit.)
+1. "glossary.txt" is the file expected to import a glossary. Such file must be created in the same directory as the .jar file (or Main.java if executting from .replit.)
 2. Each line shall be treated as an entry.
 3. First input the source term, then add a backlash and, finally, the target term (eg.: "salario\wage".)
 4. No space should be left before or after the backlash, and no blank lines should be left either. 
@@ -52,3 +52,7 @@ I have set an enumeration for setting languages, and the corresponding language 
 1. Via Repl.it, click on the icon and test online.
 [![Run on Repl.it](https://repl.it/badge/github/emiestevarena/OpenCATe)](https://repl.it/github/emiestevarena/OpenCATe)
 2. Via releases. Install OpenJDK14 and download binaries tagged as prerelease. Extract and run via "java -jar filename.jar" on terminal.
+
+
+# How it's designed
+1. If you've been this far the folder out/sequence has the UML in png, as exported from the sequence.plantuml file.
