@@ -1,5 +1,47 @@
 @startuml OpenCATe
+skinparam   Style   strictuml
+skinparam   SequenceMessageAlignment center
+
+class Segment{
+    -Source: String
+    -Target: String
+    +getter()
+    +setter()
+    +constructor()
+}
+
+class Memory{
+    -Segments: ArrayList
+    +getter()
+    +setter()
+    +constructor()
+}
+
+class Entry{
+    -Source: String 
+    -Target:String
+    +getter()
+    +setter()
+    +constructor()
+}
+
+class Expression extends Entry{
+    -Key: String
+    +super()
+    +getter()
+    +setter()
+    +constructor()
+}
+
+class Glossary{
+    -Entries: ArrayList
+    -Expressions: ArrayList
+    +getter()
+    +setter()
+    +constructor()
+}
+
 Segment -> Memory :stored in
-Entry -> Expression :extends
 Expression -> Glossary :stored in
+Entry -> Glossary :stored in
 @enduml
