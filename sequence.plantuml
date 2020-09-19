@@ -2,10 +2,10 @@
 skinparam   Style   strictuml
 skinparam   SequenceMessageAlignment center
 
+
 class Segment{
     -Source: String
     -Target: String
-    -MaxLength: int
     +getter()
     +setter()
     +constructor()
@@ -46,6 +46,7 @@ class Glossary{
 class TranslationServices{
     -Source: String
     -Target: String
+    -MaxLength: int
     +setter()
     +getter()
     +input()
