@@ -5,12 +5,13 @@ skinparam   SequenceMessageAlignment center
 class Segment{
     -Source: String
     -Target: String
+    -MaxLength: int
     +getter()
     +setter()
     +constructor()
 }
 
-class Memory{
+class TranslationMemory{
     -Segments: ArrayList
     +getter()
     +setter()
@@ -18,11 +19,12 @@ class Memory{
 }
 
 class Entry{
-    -Source: String 
-    -Target:String
+    #Source: String 
+    #Target:String
     +getter()
     +setter()
     +constructor()
+    +compare()
 }
 
 class Expression extends Entry{
@@ -41,7 +43,77 @@ class Glossary{
     +constructor()
 }
 
-Segment -> Memory :stored in
-Expression -> Glossary :stored in
-Entry -> Glossary :stored in
+class TranslationServices{
+    -Source: String
+    -Target: String
+    +setter()
+    +getter()
+    +input()
+}
+
+class Source{
+    -Source: ArrayList
+    +read()
+    +getter()
+    +setter()
+}
+
+class Output{
+    -Target: String
+    +create()
+    +write()
+}
+
+class GlossaryServices{
+    +inputEntry()
+    +inputExpression()
+    +searchEntry()
+    +searchExpression()
+}
+
+class MemoryCheck{
+    -Words: ArrayList
+    -Size: int
+    -Matches: int
+    +getter()
+    +setter()
+    +constructor()
+}
+
+class MemoryServices{
+    -Percentage: int
+    +setter()
+    +getter()
+    +split()
+    +compare()
+}
+
+class GlossaryImport{
+    -Line: String
+    -L1: String
+    -L2: String
+    -Entries: int
+    +read()
+}
+
+class GlossaryExport{
+    -Text: String
+    +write()
+}
+
+Segment --> TranslationMemory :stored in
+Expression --> Glossary :stored in
+Entry --> Glossary :stored in
+TranslationServices--> Segment :creates
+TranslationServices<-- Source: source text
+TranslationServices --> Output: target text
+TranslationServices --> GlossaryServices: uses
+GlossaryServices --> Entry : creates
+GlossaryServices --> Expression: creates
+GlossaryServices --> Glossary: consults
+TranslationServices --> MemoryServices: consults
+MemoryServices --> MemoryCheck: creates
+MemoryServices --> TranslationMemory: compares
+GlossaryImport --> Entry: creates
+GlossaryServices --> GlossaryExport :exports
 @enduml
