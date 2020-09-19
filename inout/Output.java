@@ -25,11 +25,11 @@ public class Output {
         }
     }
 
-    public void writeTarget(TranslationMemory a){
+    public void writeTarget(TranslationMemory tm){
         String tText="";
         int i;
-        for (i=0;i<a.getParagraphs();i++){
-            tText+=a.getTargetMem(i)+"\n";
+        for (i=0;i<tm.getSegments().size();i++){
+            tText+=tm.getSegments().get(i).getTarget()+"\n";
         }
         try {
             FileWriter wTarget = new FileWriter(this.tFile+".txt");

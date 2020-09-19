@@ -2,54 +2,39 @@ package services;
 import classes.*;
 
 public class MemoryServices {
-    public void setWords(TranslationMemory a,int b, MemoryCheck c){
-        int length = a.getSourceMem(b).length();
-        int wordCount = 1;
-        for(int i=0;i<length;i++){
-            if(a.getSourceMem(b).charAt(i)==' '){
-                wordCount++;
-            }
-        } 
-        c.empty(wordCount);
-        c.setWordCount(wordCount);
-        c.setCurrentSegment(b);
-    }
 
-    public void setStrings(TranslationMemory a,int b, MemoryCheck c){
-        int j=0;
+    public void setStrings(TranslationMemory tm, int i, MemoryCheck mc){
         int k=0;
         String l=" ";
-        for(int i=0; i<a.getSourceMem(b).length();i++){
-            if(a.getSourceMem(b).charAt(i)==' '){
-                c.setSplitSegment(j, l);
-                j++;
-                k=i+1;
+        for(int j=0; j<tm.getSegments().get(i).getSource().length();j++){
+            if(tm.getSegments().get(i).getSource().charAt(i)==' '){
+                mc.getSplitSegment().add(l);
+                k=j+1;
             }else{
-                l = a.getSourceMem(b).substring(k,i+1);
+                l = tm.getSegments().get(i).getSource().substring(k,j+1);
             }
         }
-        c.setSplitSegment(j, l);
+        mc.getSplitSegment().add(l);
     }
 
-    public void compareStrings(TranslationMemory a, MemoryCheck b){
+    public void compareStrings(TranslationMemory tm,MemoryCheck mc){
         int c;
-        for(int i=0;i<b.getCurrentSegment();i++){
+        for(int i=0;i<tm.getSegments().size()-1;i++){
             c=0;
-            String l=a.getSourceMem(i);
-            for(int j=0;j<b.getWordCount();j++){
-                String k =b.getSplitSegment(j);
-                if(l.contains(k)){
-                    c++;
-                    b.setPercentage(c*100/b.getWordCount());
+            for(int j=0;j<mc.getSplitSegment().size();j++){
+                if(tm.getSegments().get(i).getSource().contains(mc.getSplitSegment().get(j))){
+                   c++;
+                   mc.setPercentage(c*100/mc.getSplitSegment().size()); 
                 }
             }
-            if(b.getPercentage()>=70){
-                System.out.println("Similar segment, "+b.getPercentage()+"% match:");
-                System.out.print(a.getTargetMem(i));
+            if(mc.getPercentage()>=70){
+                System.out.println("Similar segment, "+mc.getPercentage()+"% match:");
+                System.out.print(tm.getSegments().get(i).getTarget());
                 System.out.println("");
                 break;
-            }           
-        }
+            }
+        };
+        
     }
 
     public void delete(MemoryCheck a){

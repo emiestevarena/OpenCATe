@@ -1,70 +1,92 @@
 package services;
 import classes.*;
 import inout.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class TranslationServices {
-    Scanner leer= new Scanner(System.in, "UTF-8").useDelimiter("\n");
-
-    public void SourceToMemory(TranslationMemory a, Source b){
-        int i;
-        for(i=0;i<b.getLength();i++){
-            a.setSource(i, b.getSource(i));
-        } 
-        b.deleteSource();    
-    }
-
-    public void inputMemory(TranslationMemory a, Glossary b, Output c, GlossaryServices e){
-        int i,j,k;
-        String d;
-        j=a.getMaxLength();
-        MemoryServices ms = new MemoryServices();
-        for (i=0;i<a.getParagraphs();i++){
-            System.out.println("introduce source paragraph "+(i+1)+" in language: "+a.getSourceLanguage());
-            System.out.println(a.getSourceMem(i));
-            e.searchEntry(a.getSourceMem(i),b);
-            if(i>0){
-                MemoryCheck mc= new MemoryCheck();
-                ms.setWords(a, i, mc);
-                ms.setStrings(a, i, mc);
-                ms.compareStrings(a, mc);
-                ms.delete(mc);
-            }
-            System.out.println("introduce target paragraph "+(i+1)+" in language: "+a.getTargetLanguage());
-            d=leer.next();
-            k=d.length();
-            j-=k-1;
-            if(j<=0){
-                System.out.println("Max length reached");
-                while(i<a.getParagraphs()){
-                    a.setTarget(i,"");
-                    i++;
-                }
-                break;
-            }else{
-                a.setTarget(i,d);
-                System.out.println("Characters left: "+j);
-                a.setMaxLength(j);
-                c.writeTarget(a);
-                e.setEntry(b);
-                e.setExpression(b);
-                this.writeGlossary(b);
-            }
-
-        }
-    }
+    private String sourceL;
+    private String targetL;
     
-    public void Import(Glossary g){
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+    public void setUp(Source s,Glossary g,Output o){
+        this.setLanguages();
+        s.ReadFile();
         GlossaryImport gi = new GlossaryImport();
         gi.ReadGlossary(g);
-        gi=null;
-    };
-
-    private void writeGlossary(Glossary g){
-        GlossaryExport ge = new GlossaryExport();
-        ge.writeGlossary(g);
-        ge=null;
+        o.createTarget();
     }
 
+    private void setLanguages(){
+        System.out.println("Enter source and target languages");
+        this.sourceL=leer.next();
+        this.targetL=leer.next();  
+    }
 
+    public void input(Source sou,Glossary g, Output o){
+        TranslationMemory tm = new TranslationMemory();
+        this.setGlossary(g);
+        for(int i=0;i<sou.getSource().size();i++){
+            Segment seg = new Segment();
+            this.setSource(sou,seg, i);
+            this.searchMatches(tm,i,g);
+            tm.setMaxLength(tm.getMaxLength()-seg.getSource().length());
+            if(!checkLength(tm)){break;}
+            else{
+                seg.setSource(this.setTarget(i));
+                tm.getSegments().add(seg);
+                this.setGlossary(g);
+                this.export(o, tm, g);
+                seg=null;  
+            }
+        }
+    }
+
+    private void setSource(Source sou, Segment seg, int i){
+        seg.setSource(sou.getSource().get(0));
+        sou.getSource().remove(0);
+        System.out.println("Source segment: "+(i+1)+" in "+sourceL);
+        System.out.println(seg.getSource());
+    }
+
+    private void searchMatches(TranslationMemory tm, int i, Glossary g){
+        GlossaryServices gs = new GlossaryServices();
+        gs.searchEntry(tm.getSegments().get(i).getSource(),g);
+        gs= null;
+        if(i>0){
+            MemoryCheck mc= new MemoryCheck();
+            MemoryServices ms = new MemoryServices();
+            ms.setStrings(tm, i, mc);
+            ms.compareStrings(tm, mc);
+            ms.delete(mc);
+            ms=null;
+        }
+    }
+
+    private boolean checkLength(TranslationMemory tm){
+        if(tm.getMaxLength()<0){
+            System.out.println("Max length reached");
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    private String setTarget(int i){
+        System.out.println("Introduce target segment: "+(i+1)+" in "+targetL);
+        return leer.next();
+    }
+
+    private void setGlossary(Glossary g){
+        GlossaryServices gs = new GlossaryServices();
+        gs.setEntry(g);
+        gs.setExpression(g);
+        gs=null;
+    }
+
+    private void export(Output o,TranslationMemory tm,Glossary g){
+        o.writeTarget(tm);
+        GlossaryExport ge = new GlossaryExport();
+        ge.writeGlossary(g);
+    }
 }

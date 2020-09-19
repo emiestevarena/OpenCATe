@@ -16,7 +16,7 @@ public class Source{
       this.length=0;
       while (myReader.hasNextLine()) {
         this.setSource(myReader.nextLine());
-        System.out.println(this.getSource(this.length));
+        System.out.println(source.get(this.length));
         this.length++;
       } 
       myReader.close();
@@ -32,8 +32,8 @@ public class Source{
     return sText[a];
   }
 
-  public String getSource(int a){
-    return source.get(a);
+  public ArrayList<String> getSource(){
+    return source;
   }
 
   public void setSource(String b){

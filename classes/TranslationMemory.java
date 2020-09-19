@@ -1,75 +1,24 @@
 package classes;
-import inout.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class TranslationMemory {
-    private String[] Languages;
-    private String[][] fullMem; //index 0 = source; index 1= target
-    private int paragraphs;
-    private int max_length;
+    private ArrayList<Segment> segments;
+    private int MaxLength;
     
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
-    public TranslationMemory createMemory(Source a){
-        TranslationMemory mem = new TranslationMemory();
-        this.fullMem= new String[a.getLength()][2];
-        this.Languages= new String[2];
-        this.paragraphs=a.getLength();
-        this.setLanguages();
-        this.max_length=1073741000;
-        return mem;
+    public TranslationMemory(){
+        segments=new ArrayList<>();
+        MaxLength=1073741000;
     }
 
-    public void setLanguages(){
-        
-        System.out.println("Introduce source and target language");
-        this.Languages[0]=leer.next();
-        this.Languages[1]=leer.next();
-        
-    }
-
-    public void setMaxLength(int a) {
-        this.max_length=a;
+    public ArrayList<Segment> getSegments(){
+        return segments;
     }
 
     public int getMaxLength(){
-        return max_length;
+        return MaxLength;
     }
 
-    public void setSource(int a, String b){
-        this.fullMem[a][0]=b;
+    public void setMaxLength(int a){
+        this.MaxLength=a;
     }
-
-    public void setTarget(int a, String b){
-        this.fullMem[a][1]=b;
-    }
-
-    public void setParagraphs(int a){
-        this.paragraphs=a;
-    }
-    
-    public int getParagraphs(){
-        return paragraphs;    
-    }
-
-    public String getSourceLanguage(){
-        return Languages[0];
-    }
-
-    public String getTargetLanguage(){
-        return Languages[1];
-    }
-
-    public String[][] getfullMem(){
-        return fullMem;
-    }
-
-    public String getSourceMem(int i){
-        return fullMem[i][0];
-    }
-    
-    public String getTargetMem(int i){
-        return fullMem[i][1];
-    }   
-
 }

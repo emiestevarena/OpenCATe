@@ -1,42 +1,17 @@
 package classes;
+import java.util.*;
 
 public class MemoryCheck{
-    private int currentSegment;
-    private int wordCount;
-    private String[] splitSegment;
+    private ArrayList<String> splitSegment;
     private double percentage;
 
-    public MemoryCheck empty(int a){
-        MemoryCheck mc = new MemoryCheck();
-        this.currentSegment=0;
-        this.wordCount=a;
-        this.splitSegment = new String[a];
-        this.percentage=0;
-        return mc;
+    public MemoryCheck(){
+        splitSegment= new ArrayList<>();
+        percentage=0;
     }
 
-    public void setSplitSegment (int a, String b){
-        this.splitSegment[a]=b;
-    }
-
-    public String getSplitSegment(int a){
-        return splitSegment[a];
-    }
-
-    public void setCurrentSegment(int a){
-        this.currentSegment=a;
-    }
-
-    public int getCurrentSegment(){
-        return currentSegment;
-    }
-
-    public void setWordCount(int a){
-        this.wordCount=a;
-    }
-
-    public int getWordCount(){
-        return wordCount;
+    public ArrayList<String> getSplitSegment(){
+        return splitSegment;
     }
 
     public void setPercentage(double a){
