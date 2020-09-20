@@ -3,15 +3,15 @@ import classes.*;
 
 public class MemoryServices {
 
-    public void setStrings(TranslationMemory tm, int i, MemoryCheck mc){
+    public void setStrings(Segment seg, int i, MemoryCheck mc){
         int k=0;
         String l=" ";
-        for(int j=0; j<tm.getSegments().get(i).getSource().length();j++){
-            if(tm.getSegments().get(i).getSource().charAt(i)==' '){
+        for(int j=0; j<seg.getSource().length();j++){
+            if(seg.getSource().charAt(i)==' '){
                 mc.getSplitSegment().add(l);
                 k=j+1;
             }else{
-                l = tm.getSegments().get(i).getSource().substring(k,j+1);
+                l = seg.getSource().substring(k,j+1);
             }
         }
         mc.getSplitSegment().add(l);

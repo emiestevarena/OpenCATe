@@ -55,4 +55,4 @@ I have set an enumeration for setting languages, and the corresponding language 
 
 
 # How it's designed
-1. If you've been this far the folder out/sequence has the UML in png, as exported from the sequence.plantuml file.
+1. If you've been this far, the folder "out/sequence" has the UML chart in png, as exported from the sequence.plantuml file.

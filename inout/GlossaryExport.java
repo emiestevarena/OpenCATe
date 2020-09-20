@@ -3,6 +3,7 @@ import classes.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
 
 public class GlossaryExport {
     
@@ -22,6 +23,7 @@ public class GlossaryExport {
 
     public void writeGlossary(Glossary g){
         String enter="";
+        Collections.sort(g.getEntryGlossary());
         for (int i=0;i<g.getEntryGlossary().size();i++){
             enter+=g.getEntryGlossary().get(i).getSource()+"\\"+g.getEntryGlossary().get(i).getTarget()+"\n";
         }

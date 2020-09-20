@@ -29,11 +29,11 @@ public class TranslationServices {
         for(int i=0;i<sou.getSource().size();i++){
             Segment seg = new Segment();
             this.setSource(sou,seg, i);
-            this.searchMatches(tm,i,g);
+            this.searchMatches(seg,tm,i,g);
             tm.setMaxLength(tm.getMaxLength()-seg.getSource().length());
             if(!checkLength(tm)){break;}
             else{
-                seg.setSource(this.setTarget(i));
+                this.setTarget(seg, i);
                 tm.getSegments().add(seg);
                 this.setGlossary(g);
                 this.export(o, tm, g);
@@ -49,14 +49,14 @@ public class TranslationServices {
         System.out.println(seg.getSource());
     }
 
-    private void searchMatches(TranslationMemory tm, int i, Glossary g){
+    private void searchMatches(Segment seg, TranslationMemory tm, int i, Glossary g){
         GlossaryServices gs = new GlossaryServices();
-        gs.searchEntry(tm.getSegments().get(i).getSource(),g);
+        gs.searchEntry(seg.getSource(),g);
         gs= null;
         if(i>0){
             MemoryCheck mc= new MemoryCheck();
             MemoryServices ms = new MemoryServices();
-            ms.setStrings(tm, i, mc);
+            ms.setStrings(seg, i, mc);
             ms.compareStrings(tm, mc);
             ms.delete(mc);
             ms=null;
@@ -72,9 +72,9 @@ public class TranslationServices {
         }
     }
 
-    private String setTarget(int i){
+    private void setTarget(Segment seg,int i){
         System.out.println("Introduce target segment: "+(i+1)+" in "+targetL);
-        return leer.next();
+        seg.setTarget(leer.next());
     }
 
     private void setGlossary(Glossary g){
