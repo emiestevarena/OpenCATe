@@ -14,7 +14,11 @@ public class TranslationServices {
         s.ReadFile();
         GlossaryImport gi = new GlossaryImport();
         gi.ReadGlossary(g);
+        ExpressionsImport e = new ExpressionsImport();
+        e.ReadGlossary(g);
         o.createTarget();
+        gi=null;
+        e=null;
     }
 
     private void setLanguages(){
@@ -88,5 +92,8 @@ public class TranslationServices {
         o.writeTarget(tm);
         GlossaryExport ge = new GlossaryExport();
         ge.writeGlossary(g);
+        ExpressionsExport ee= new ExpressionsExport();
+        ee.writeGlossary(g);
+        ge=null; ee=null;
     }
 }

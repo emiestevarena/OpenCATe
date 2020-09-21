@@ -3,10 +3,9 @@ import classes.*;
 import java.io.*;
 import java.util.*;
 
-public class GlossaryExport {
-    
+public class ExpressionsExport {
     /*public void createGlossary(){
-        File targetFile = new File("newGlossary.txt");
+        File targetFile = new File("newExpressions.txt");
         try{
             if (targetFile.createNewFile()) {
                 System.out.println("Export glossary created");
@@ -21,12 +20,12 @@ public class GlossaryExport {
 
     public void writeGlossary(Glossary g){
         String enter="";
-        Collections.sort(g.getEntryGlossary());
-        for (int i=0;i<g.getEntryGlossary().size();i++){
-            enter+=g.getEntryGlossary().get(i).getSource()+"\\"+g.getEntryGlossary().get(i).getTarget()+"\n";
+        Collections.sort(g.getExpressionsGlossary());
+        for (int i=0;i<g.getExpressionsGlossary().size();i++){
+            enter+=g.getExpressionsGlossary().get(i).getSource()+"\\"+g.getExpressionsGlossary().get(i).getTarget()+"\\"+g.getExpressionsGlossary().get(i).getSourceKey()+"\n";
         }
         try {
-            FileWriter wTarget = new FileWriter("newGlossary.txt");
+            FileWriter wTarget = new FileWriter("newExpressions.txt");
             wTarget.write(enter);
             wTarget.close();
             System.out.println("Successfully wrote to the file.");

@@ -28,7 +28,7 @@ class Entry{
     +compare()
 }
 
-class Expression extends Entry{
+class Expressions extends Entry{
     -Key: String
     +super()
     +getter()
@@ -99,19 +99,35 @@ class GlossaryImport{
 }
 
 class GlossaryExport{
-    +create()
     +write()
 }
 
+class ExpressionsImport{
+    -Line: String
+    -Entries: int
+    +read()
+}
+
+class ExpressionsExport{
+    +write()
+}
+
+class AuxMemory{
+    -Segments: ArrayList
+    read()
+    getter()
+    setter()
+}
+
 Segment --> TranslationMemory :stored in
-Expression --> Glossary :stored in
+Expressions --> Glossary :stored in
 Entry --> Glossary :stored in
 TranslationServices--> Segment :creates
 TranslationServices --> Source: reads
 TranslationServices --> Output: writes
 TranslationServices --> GlossaryServices: uses
 GlossaryServices --> Entry : creates
-GlossaryServices --> Expression: creates
+GlossaryServices --> Expressions: creates
 GlossaryServices --> Glossary: consults
 TranslationServices --> MemoryServices: uses
 TranslationServices --> MemoryCheck : creates
@@ -120,4 +136,7 @@ MemoryServices --> TranslationMemory: gets
 GlossaryImport --> Entry: creates
 TranslationServices --> GlossaryExport :writes
 TranslationServices --> GlossaryImport :reads
+ExpressionsImport --> Expressions: creates
+TranslationServices --> ExpressionsExport :writes
+TranslationServices --> ExpressionsImport :reads
 @enduml
