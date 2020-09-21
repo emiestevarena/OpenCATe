@@ -119,24 +119,31 @@ class AuxMemory{
     setter()
 }
 
-Segment --> TranslationMemory :stored in
-Expressions --> Glossary :stored in
+AuxMemory --> Segment :creates
 Entry --> Glossary :stored in
+Expressions --> Glossary :stored in
+ExpressionsExport--> Glossary :gets
+ExpressionsImport --> Expressions: creates
+GlossaryImport --> Entry: creates
+GlossaryServices --> Entry : creates
+GlossaryServices --> Expressions: creates
+GlossaryServices --> Glossary: consults
+GlossaryExport --> Glossary :gets
+MemoryServices --> MemoryCheck: sets
+MemoryServices --> TranslationMemory:compares
+MemoryServices --> AuxMemory: compares
+Output --> TranslationMemory: gets
+Segment --> TranslationMemory :stored in
+Source --> Segment: creates
 TranslationServices--> Segment :creates
 TranslationServices --> Source: reads
 TranslationServices --> Output: writes
 TranslationServices --> GlossaryServices: uses
-GlossaryServices --> Entry : creates
-GlossaryServices --> Expressions: creates
-GlossaryServices --> Glossary: consults
 TranslationServices --> MemoryServices: uses
 TranslationServices --> MemoryCheck : creates
-MemoryServices --> MemoryCheck: sets and compares
-MemoryServices --> TranslationMemory: gets
-GlossaryImport --> Entry: creates
 TranslationServices --> GlossaryExport :writes
 TranslationServices --> GlossaryImport :reads
-ExpressionsImport --> Expressions: creates
 TranslationServices --> ExpressionsExport :writes
 TranslationServices --> ExpressionsImport :reads
+TranslationServices --> AuxMemory: reads
 @enduml

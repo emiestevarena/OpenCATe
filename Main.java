@@ -12,9 +12,10 @@ public class Main {
         Output files = new Output();
         Glossary dic= new Glossary();
         Source s = new Source();
+        AuxMemory a= new AuxMemory();
         TranslationServices serv = new TranslationServices();
-        serv.setUp(s, dic, files);
-        serv.input(s, dic, files);
+        serv.setUp(s, dic, files,a);
+        serv.input(s, dic, files,a);
         leer.close();
     }
     

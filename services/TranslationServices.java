@@ -9,13 +9,14 @@ public class TranslationServices {
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    public void setUp(Source s,Glossary g,Output o){
+    public void setUp(Source s,Glossary g,Output o,AuxMemory a){
         this.setLanguages();
         s.ReadFile();
         GlossaryImport gi = new GlossaryImport();
         gi.ReadGlossary(g);
         ExpressionsImport e = new ExpressionsImport();
         e.ReadGlossary(g);
+        a.ReadFile();
         o.createTarget();
         gi=null;
         e=null;
@@ -27,13 +28,13 @@ public class TranslationServices {
         this.targetL=leer.next();  
     }
 
-    public void input(Source sou,Glossary g, Output o){
+    public void input(Source sou,Glossary g, Output o,AuxMemory a){
         TranslationMemory tm = new TranslationMemory();
         this.setGlossary(g);
         for(int i=0;i<sou.getSource().size();i++){
             Segment seg = new Segment();
             this.setSource(sou,seg, i);
-            this.searchMatches(seg,tm,i,g);
+            this.searchMatches(seg,tm,i,g,a);
             tm.setMaxLength(tm.getMaxLength()-seg.getSource().length());
             if(!checkLength(tm)){break;}
             else{
@@ -53,18 +54,19 @@ public class TranslationServices {
         System.out.println(seg.getSource());
     }
 
-    private void searchMatches(Segment seg, TranslationMemory tm, int i, Glossary g){
+    private void searchMatches(Segment seg, TranslationMemory tm, int i, Glossary g,AuxMemory a){
         GlossaryServices gs = new GlossaryServices();
         gs.searchEntry(seg.getSource(),g);
         gs= null;
-        if(i>0){
+        
             MemoryCheck mc= new MemoryCheck();
             MemoryServices ms = new MemoryServices();
             ms.setStrings(seg, i, mc);
-            ms.compareStrings(tm, mc);
+            if(!a.getAuxMem().isEmpty()){ms.compareStrings(a, mc);}
+            if(i>0){ms.compareStrings(tm, mc);};   
             ms.delete(mc);
             ms=null;
-        }
+        
     }
 
     private boolean checkLength(TranslationMemory tm){
