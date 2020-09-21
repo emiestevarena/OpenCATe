@@ -34,7 +34,7 @@ public class TranslationServices {
         for(int i=0;i<sou.getSource().size();i++){
             Segment seg = new Segment();
             this.setSource(sou,seg, i);
-            this.searchMatches(seg,tm,i,g,a);
+            this.searchMatches(seg,tm,g,a);
             tm.setMaxLength(tm.getMaxLength()-seg.getSource().length());
             if(!checkLength(tm)){break;}
             else{
@@ -54,16 +54,16 @@ public class TranslationServices {
         System.out.println(seg.getSource());
     }
 
-    private void searchMatches(Segment seg, TranslationMemory tm, int i, Glossary g,AuxMemory a){
+    private void searchMatches(Segment seg, TranslationMemory tm, Glossary g,AuxMemory a){
         GlossaryServices gs = new GlossaryServices();
         gs.searchEntry(seg.getSource(),g);
         gs= null;
         
             MemoryCheck mc= new MemoryCheck();
             MemoryServices ms = new MemoryServices();
-            ms.setStrings(seg, i, mc);
+            ms.setStrings(seg, mc);
             if(!a.getAuxMem().isEmpty()){ms.compareStrings(a, mc);}
-            if(i>0){ms.compareStrings(tm, mc);};   
+            if(!tm.getSegments().isEmpty()){ms.compareStrings(tm, mc);};   
             ms.delete(mc);
             ms=null;
         

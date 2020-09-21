@@ -4,11 +4,11 @@ import inout.AuxMemory;
 
 public class MemoryServices {
 
-    public void setStrings(Segment seg, int i, MemoryCheck mc){
+    public void setStrings(Segment seg, MemoryCheck mc){
         int k=0;
         String l=" ";
         for(int j=0; j<seg.getSource().length();j++){
-            if(seg.getSource().charAt(i)==' '){
+            if(seg.getSource().charAt(j)==' '){
                 mc.getSplitSegment().add(l);
                 k=j+1;
             }else{
